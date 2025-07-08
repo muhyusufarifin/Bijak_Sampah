@@ -1,0 +1,778 @@
+/* Import Google Fonts (pilih font yang ceria dan mudah dibaca) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Chewy&display=swap');
+
+/* Variabel Warna (disesuaikan dengan gambar) */
+:root {
+    --primary-green: #4CAF50; /* Hijau cerah dari logo/gambar */
+    --secondary-yellow: #FFC107; /* Kuning ceria dari logo/gambar */
+    --dark-green: #388E3C;
+    --light-green: #8BC34A;
+    --text-dark: #333;
+    --text-light: #fff;
+    --bg-light: #f4f4f4;
+    --bg-white: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset CSS Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-green);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Menghilangkan spasi bawah pada gambar */
+}
+
+/* Tombol Umum */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--secondary-yellow);
+    color: var(--text-dark);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.btn-primary:hover {
+    background-color: #FFEB3B; /* Sedikit lebih terang */
+    transform: translateY(-2px);
+}
+
+/* Header */
+header {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Memastikan logo dan navigasi sejajar vertikal */
+    flex-wrap: wrap;
+    padding: 5px 0; /* Memberikan padding vertikal di sini untuk header */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 150px; /* Tinggi logo header */
+    width: auto;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.3));
+}
+
+.logo h1 {
+    font-family: 'Chewy', cursive;
+    font-size: 2.5em; /* Ukuran font judul di header */
+    color: var(--secondary-yellow);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    line-height: 1.1;
+}
+
+/* NAVIGASI (Default untuk Desktop) */
+nav {
+    /* Pastikan NAV ditampilkan sebagai flex di desktop */
+    display: flex;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--secondary-yellow);
+    border-bottom: 2px solid var(--secondary-yellow);
+}
+
+/* Burger Menu (Default: Sembunyi di Desktop) */
+.menu-toggle {
+    display: none; /* Sembunyikan secara default di desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px; /* Lebar ikon burger */
+    height: 25px; /* Tinggi ikon burger */
+    cursor: pointer;
+    z-index: 1001; /* Pastikan di atas nav saat aktif */
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-light);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animasi Burger ke X */
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0; /* Bar tengah menghilang */
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg); /* Bar atas berputar dan geser */
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg); /* Bar bawah berputar dan geser */
+}
+
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, var(--primary-green), var(--light-green));
+    color: var(--text-light);
+    padding: 80px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.hero-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.hero-content h2 {
+    font-family: 'Chewy', cursive;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--secondary-yellow);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: right;
+}
+
+.hero-image img {
+    max-height: 400px;
+    width: auto;
+    border-radius: 15px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* General Section Styling */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+section h2 {
+    font-family: 'Chewy', cursive;
+    font-size: 3em;
+    margin-bottom: 40px;
+    color: var(--dark-green);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Filosofi Section */
+.filosofi-section {
+    background-color: var(--bg-white);
+    padding-top: 60px;
+}
+
+.filosofi-section p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    line-height: 1.8;
+}
+
+.filosofi-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.filosofi-icons .icon-item {
+    background-color: var(--light-green);
+    color: var(--text-light);
+    padding: 25px 20px;
+    border-radius: 15px;
+    width: 220px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.filosofi-icons .icon-item:hover {
+    transform: translateY(-10px);
+    background-color: var(--dark-green);
+}
+
+.filosofi-icons .icon-item i {
+    font-size: 3.5em;
+    color: var(--secondary-yellow);
+    margin-bottom: 15px;
+}
+
+.filosofi-icons .icon-item h3 {
+    font-size: 1.3em;
+    margin-top: 10px;
+    color: var(--text-light);
+}
+
+/* Fitur Section */
+.fitur-section {
+    background-color: var(--bg-light);
+    padding-bottom: 60px;
+}
+
+.fitur-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.fitur-item {
+    background-color: var(--bg-white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fitur-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.fitur-item i {
+    font-size: 3.2em;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+}
+
+.fitur-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--dark-green);
+}
+
+.fitur-item p {
+    color: #666;
+    font-size: 0.95em;
+}
+
+/* =============== GALERI SECTION BARU =============== */
+.galeri-section {
+    background-color: var(--bg-white);
+}
+
+.galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.galeri-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeri-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+/* ================================================= */
+
+
+/* =============== MODAL STYLE BARU =============== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.85);
+}
+
+.modal-content-wrapper {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    position: relative;
+    animation-name: zoom;
+    animation-duration: 0.4s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+#modal-caption {
+    margin: 15px auto 0 auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+/* ============================================== */
+
+
+/* About Section */
+.about-section {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    padding-bottom: 60px;
+}
+
+.about-section h2 {
+    color: var(--secondary-yellow);
+}
+
+.about-content p {
+    font-size: 1.1em;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.about-team {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.team-member {
+    background-color: var(--light-green);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    border: 4px solid var(--secondary-yellow);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.team-member h3 {
+    font-size: 1.6em;
+    margin-bottom: 8px;
+    color: var(--text-light);
+}
+
+.team-member p {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--dark-green);
+    color: var(--text-light);
+    padding: 40px 0 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* Kolom Footer Umum */
+.footer-content > div {
+    flex: 1;
+    min-width: 180px;
+    margin: 0 15px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 200px;
+}
+
+.footer-brand img {
+    height: 100px; /* Ukuran logo di footer, bisa disesuaikan */
+    width: auto;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+}
+
+.footer-links h3,
+.social-media h3,
+.contact-info h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: var(--secondary-yellow);
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-yellow);
+}
+
+
+.social-media a {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    font-size: 1em;
+    margin-bottom: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-media a i {
+    font-size: 1.5em;
+    margin-right: 10px;
+    width: 25px;
+    text-align: center;
+}
+
+.social-media a:hover {
+    color: var(--secondary-yellow);
+    transform: translateX(5px);
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1em;
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-info p i {
+    margin-right: 10px;
+    color: var(--secondary-yellow);
+    flex-shrink: 0;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 0.9em;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* --- Responsive Design --- */
+
+/* Tablet & Mobile Navigation */
+@media (max-width: 768px) {
+    header .container {
+        flex-wrap: nowrap;
+    }
+
+    /* Tampilkan burger menu di mobile */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Sembunyikan navigasi secara default di mobile */
+    nav {
+        order: 3; /* Pindahkan nav ke bawah logo/menu-toggle pada mobile */
+        width: 100%;
+        height: 0; /* Awalnya tinggi 0 */
+        overflow: hidden; /* Sembunyikan konten yang meluap */
+        transition: height 0.3s ease-in-out, padding 0.3s ease-in-out; /* Transisi untuk tinggi dan padding */
+        text-align: center;
+        background-color: var(--primary-green);
+        position: absolute;
+        left: 0;
+        top: 160px; /* Sesuaikan dengan tinggi logo 150px + padding di .container */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Tampilkan navigasi saat aktif */
+    nav.active {
+        height: auto; /* Biarkan tinggi menyesuaikan konten */
+        padding-bottom: 10px; /* Tambahkan padding setelah aktif */
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    .hero-section {
+        min-height: auto;
+        padding: 60px 0;
+    }
+
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content, .hero-image {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2em;
+    }
+
+    .hero-image {
+        margin-top: 30px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    section h2 {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+
+    .filosofi-icons .icon-item {
+        width: 180px;
+    }
+
+    .fitur-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .about-team {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Footer Responsif untuk Tablet */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-content > div {
+        margin: 0 auto;
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .footer-brand {
+        align-items: center;
+    }
+
+    .social-media a {
+        justify-content: center;
+    }
+
+    .contact-info p {
+        justify-content: center;
+    }
+
+    /* Modal responsif */
+    .modal-content-wrapper {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 100px;
+        margin-right: 10px;
+    }
+    .logo h1 {
+        font-size: 1.8em;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8em;
+    }
+    
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+
+    .filosofi-icons .icon-item {
+        width: 150px;
+        padding: 20px 15px;
+    }
+    .filosofi-icons .icon-item i {
+        font-size: 3em;
+    }
+
+    .fitur-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeri-grid {
+        grid-template-columns: 1fr; /* 1 kolom untuk mobile */
+    }
+
+    .team-member {
+        width: 250px;
+    }
+    
+    nav {
+        top: 110px; /* Misal 100px logo + 10px padding container */
+    }
+
+    .close-modal {
+        top: 10px;
+        right: 25px;
+        font-size: 35px;
+    }
+}
